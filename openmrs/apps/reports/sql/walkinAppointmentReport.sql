@@ -13,10 +13,5 @@ FROM patient_appointment pa
    LEFT JOIN (select paMobile.person_id as 'pMobilePersonId', paMobile.value AS 'telephoneNo'  from person_attribute paMobile 
    JOIN person_attribute_type patMobile ON patMobile.name = "MobileNumber" AND patMobile.retired IS FALSE
     AND patMobile.person_attribute_type_id = paMobile.person_attribute_type_id) AS pMobile ON pa.patient_id = pMobile.pMobilePersonId 
-   LEFT JOIN (SELECT v.patient_id AS 'visitPatientId', 
-   v.visit_id AS visitId, v.date_started AS visitStartDate, vt.name AS visitType FROM visit v 
-   JOIN visit_type vt ON (v.visit_type_id = vt.visit_type_id and vt.retired IS FALSE)
-   HAVING v.visit_id = (SELECT MAX(maxV.visit_id) AS maxVisitId 
-   FROM visit maxV WHERE maxV.patient_id = v.patient_id)) AS patientVisit ON patientVisit.visitPatientId = pa.patient_id 
-WHERE pa.start_date_time BETWEEN '#startDate#' AND '#endDate#' 
+WHERE pa.appointment_kind = 'WalkIn' AND pa.start_date_time BETWEEN '#startDate#' AND '#endDate#' 
 ORDER BY pa.start_date_time DESC;
