@@ -335,7 +335,3 @@ Bahmni.ConceptSet.FormConditions.rules = {
     }  
     
  };
-
-
-
-
