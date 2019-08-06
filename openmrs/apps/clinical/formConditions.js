@@ -295,11 +295,11 @@ Bahmni.ConceptSet.FormConditions.rules = {
     "ART Follow up - Information" : function (formName , formFieldValues, patient){
         if(patient.gender === "F"){     
             return{
-                show: ["Current on FP","FP Pregnant","FP Method","EDD"]
+                show: ["Current on FP","FP Pregnant","FP Method","EDD","PMTCT - HIV & ART Follow up"]
             }
         }else {
             return{
-                hide: ["Current on FP","FP Pregnant","FP Method","EDD"]
+                hide: ["Current on FP","FP Pregnant","FP Method","EDD","PMTCT - HIV & ART Follow up"]
             }
         }    
     }, 
