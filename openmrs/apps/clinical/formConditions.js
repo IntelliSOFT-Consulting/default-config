@@ -358,6 +358,91 @@ Bahmni.ConceptSet.FormConditions.rules = {
             }
         }    
     },  
-    
+
+    "Is there an immunization not Given?" : function (formName , formFieldValues){
+        var immunizationgiven = formFieldValues["Is there an immunization not Given?"];
+            if(immunizationgiven == true){ 
+                return{
+               show:["Immunization Not Given"]            
+                }
+            }else {
+                return{
+                    hide:["Immunization Not Given"]
+                }
+            }    
+        },
+    "Clinical Assessment for Signs and Symptoms of HIV": function (formName, formFieldValues) {
+        var clinicalassessment = formFieldValues["Clinical Assessment for Signs and Symptoms of HIV"];
+        if (clinicalassessment === "Other Assessment Specify") {
+            return {
+                show: ["Specify other Assessement"]
+            }
+        } else {
+            return {
+                hide: ["Specify other Assessement"]
+            }
+        }
+    },
+
+    "Was any Development Milestone Missed?": function (formName, formFieldValues) {
+        var milestonemissed = formFieldValues["Was any Development Milestone Missed?"];
+        if (milestonemissed == true) {
+            return {
+                show: ["Development Milestones Missed"]
+            }
+        } else {
+            return {
+                hide: ["Development Milestones Missed"]
+            }
+        }
+    },
+    "Mother's ART Regimen": function (formName, formFieldValues) {
+        var motherartregimen = formFieldValues["Mother's ART Regimen"];
+        if (motherartregimen === "Other ART Regimen") {
+            return {
+                show: ["Specify other Mother's ART Regimen"]
+            }
+        } else {
+            return {
+                hide: ["Specify other Mother's ART Regimen"]
+            }
+        }
+    },
+    "HEI Treatment - Referred To ART Clinic": function (formName, formFieldValues) {
+        var referredtoclinic = formFieldValues["HEI Treatment - Referred To ART Clinic"];
+        if (referredtoclinic == true) {
+            return {
+                show: ["HEI Treatment - Referred To ART Clinic Date"]
+            }
+        } else {
+            return {
+                hide: ["HEI Treatment - Referred To ART Clinic Date"]
+            }
+        }
+    },
+    "HEI Treatment - Referred To ART Clinic": function (formName, formFieldValues) {
+        var referredtoclinic = formFieldValues["HEI Treatment - Referred To ART Clinic"];
+        if (referredtoclinic == true) {
+            return {
+                show: ["HEI Treatment - Referred To ART Clinic Date"]
+            }
+        } else {
+            return {
+                hide: ["HEI Treatment - Referred To ART Clinic Date"]
+            }
+        }
+    },
+    "HEI Treatment - Enrolled AT ART Clinic": function (formName, formFieldValues) {
+        var enrolleddate = formFieldValues["HEI Treatment - Enrolled AT ART Clinic"];
+        if (enrolleddate == true) {
+            return {
+                show: ["HEI Treatment - Enrolled AT ART Date"]
+            }
+        } else {
+            return {
+                hide: ["HEI Treatment - Enrolled AT ART Date"]
+            }
+        }
+    },
  };
 
