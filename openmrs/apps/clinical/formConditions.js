@@ -186,19 +186,6 @@ Bahmni.ConceptSet.FormConditions.rules = {
             }
         } 
     },
-
-    // "AntiRetroviral Treatment" : function (formName , formFieldValues, patient){ 
-    //     if(patient.age < 15){
-    //         return{
-    //             show: ["Child Regimen Information"],
-    //             hide:["ART Regimen - Substitution within 1st Line" , "ART Regimen(Switch to 2nd Line)" ,"Initial ART Regimen (Adult)"]
-    //         }
-    //     }else {
-    //         return{
-    //             hide: ["Child Regimen Information" , "Initial ART Regimen(Children)"]
-    //         }
-    //     } 
-    // },
     "Interruption Type" : function (formName , formFieldValues){
         var interruptiontype = formFieldValues["Interruption Type"];
         if(interruptiontype === "Stop"){
@@ -228,12 +215,12 @@ Bahmni.ConceptSet.FormConditions.rules = {
         if(switchedregimento === "Regimen Switched To (Adult First Line)"){
             return{
                 show: ["ART Regimen - Substitution within 1st Line"],
-                hide: ["ART Regimen(Switch to 2nd Line)","Other Reason"]
+                hide: ["ART Regimen(Switch to 2nd Line)","Other Reason(First Line Regimen Change)"]
 
             }
         }else if(switchedregimento === "Regimen Switched To (Adult Second Line)"){
             return{
-                show: ["ART Regimen(Switch to 2nd Line)" ],
+                show: ["ART Regimen(Switch to 2nd Line)"],
                 hide:  ["ART Regimen - Substitution within 1st Line","Other Reason(Second Regimen Change)"]
             }
         }  else {
@@ -260,17 +247,17 @@ Bahmni.ConceptSet.FormConditions.rules = {
         var changereasonfirstreg = formFieldValues["Reason For Regimen Change(First Line)"];
         if(changereasonfirstreg === "Other Reason For Regimen Change(First Line)"){
             return{
-                show: ["Other Reason"]
+                show: ["Other Reason(First Line Regimen Change)"]
             }
         }else {
             return{
-                hide: ["Other Reason"]
+                hide: ["Other Reason(First Line Regimen Change)"]
             }
         }    
     },
     "Reason For Regimen Change(Second Line)" : function (formName , formFieldValues){
-        var changereasonsecondreg = formFieldValues["Reason For Regimen Change(Second Line)"];
-        if(changereasonsecondreg === "Other Reason For Regimen Change(Second Line)"){
+        var changereasonsecond = formFieldValues["Reason For Regimen Change(Second Line)"];
+        if(changereasonsecond === "Other Reason For Regimen Change(First Line)"){
             return{
                 show: ["Other Reason(Second Regimen Change)"]
             }
@@ -332,7 +319,33 @@ Bahmni.ConceptSet.FormConditions.rules = {
             alert("HIV RETESTING DATE SHOULD BE GREATER THAN HIV FIRST TESTING DATE");
             
         }
-    }  
+    },
+    "ART Regimen - Substitution within 1st Line" : function (formName , formFieldValues, patient){
+        if(patient.age < 15){     
+            return{
+                show: ["Child Regimens (First Line)"],
+                hide:["Substitution Regimen For Adults(First Line)"]
+            }
+        }else {
+            return{
+                hide: ["Child Regimens (First Line)"],
+                show: ["Substitution Regimen For Adults(First Line)"]
+            }
+        }    
+    },  
+    "ART Regimen(Switch to 2nd Line)" : function (formName , formFieldValues, patient){
+        if(patient.age < 15){     
+            return{
+                show: ["Children Second Line Regimens"],
+                hide:["Substitution Regimen (2nd Line Adults)"]
+            }
+        }else {
+            return{
+                hide: ["Children Second Line Regimens"],
+                show:["Substitution Regimen (2nd Line Adults)"]
+            }
+        }    
+    },  
     
  };
 

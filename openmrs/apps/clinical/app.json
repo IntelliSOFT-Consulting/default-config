@@ -215,6 +215,9 @@
             "ART Treatment Reasons For Stop":{
                 "required":true
             },
+            "Other Reason(First Line Regimen Change)":{
+                "required":true 
+            },
             "defaults": {
                 "Number of living children": 1,
                 "Accepted Family Planning methods": [
