@@ -427,7 +427,7 @@
             "visits":{  
                 "translationKey":"DASHBOARD_TITLE_VISITS_KEY",
                 "type":"visits",
-                "displayOrder":3,
+                "displayOrder":21,
                 "dashboardConfig":{  
                     "title":null,
                     "maximumNoOfVisits":8,
@@ -483,7 +483,7 @@
             },
             "formsDisplay": {
                 "type": "forms",
-                "displayOrder": 21,
+                "displayOrder": 3,
                 "dashboardConfig": {
                     "title": null,
                     "maximumNoOfVisits": 10
