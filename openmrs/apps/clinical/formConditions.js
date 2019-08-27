@@ -374,7 +374,6 @@ Bahmni.ConceptSet.FormConditions.rules = {
             }
         }    
     }, 
-
     "Is there an immunization not Given?" : function (formName , formFieldValues){
         var immunizationgiven = formFieldValues["Is there an immunization not Given?"];
             if(immunizationgiven == true){ 
