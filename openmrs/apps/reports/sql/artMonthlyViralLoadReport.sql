@@ -427,8 +427,9 @@ FROM (
 	JOIN encounter enc ON enc.encounter_id = o.encounter_id 
 	JOIN visit v ON v.visit_id = enc.visit_id  
 	GROUP BY v.patient_id 
-	ORDER BY v.visit_id DESC) AS vr ON (vr.visitPatientId = person_id)
-) p 
+	ORDER BY v.visit_id DESC) AS vr ON (vr.visitPatientId = person_id) 
+	where birthdate is not NULL
+) p  
 
 UNION ALL
 
