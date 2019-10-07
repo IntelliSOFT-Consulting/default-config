@@ -320,6 +320,9 @@
             "Follow up Outcome Others Specify(Fourth Attempt)":{
                 "required":true
             },
+            "Cohort":{
+                "displayMonthAndYear": true
+            },
             "defaults": {
                 "Number of living children": 1,
                 "Accepted Family Planning methods": [
