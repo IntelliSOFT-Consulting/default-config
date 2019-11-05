@@ -1,6 +1,6 @@
 -- HIV-exposed Infants Monthly Report
 SELECT
-  'A1. Number of New HIV-Exposed Infants Enrolled' as 'Title',
+  'Number of New HIV-Exposed Infants Enrolled' as 'Title',
   count(maleGender) as 'Male',
   count(femaleGender) as 'Female',
   count(totalAll) as 'Total'
@@ -25,7 +25,7 @@ FROM (
 UNION ALL
 
 SELECT
-  'A2. Number Of HIV-Exposed Infants New And Old' as 'Title',
+  'Number Of HIV-Exposed Infants New And Old' as 'Title',
   count(maleGender) as 'Male',
   count(femaleGender) as 'Female',
   count(totalAll) as 'Total'
@@ -50,7 +50,7 @@ FROM (
 UNION ALL
 
 SELECT
-   'B 3a. PCR HIV-Exposed Infants Upto 2 Months' as 'Title',
+   'PCR HIV-Exposed Infants Upto 2 Months' as 'Title',
    count(maleGender) as 'Male',
    count(femaleGender) as 'Female',
    count(totalAll) as 'Total'
@@ -75,40 +75,11 @@ SELECT
   GROUP BY v.patient_id 
   ORDER BY v.visit_id DESC) AS pr ON (pr.visitPatientId = pn.person_id)
  ) p
- 
-UNION ALL
-
-SELECT
-   'B 3b1. PCR HIV-Exposed Infants Upto 2-12 Months' as 'Title',
-   count(maleGender) as 'Male',
-   count(femaleGender) as 'Female',
-   count(totalAll) as 'Total'
-  FROM(
-  SELECT
-    CASE WHEN ( (TIMESTAMPDIFF(MONTH, birthdate, CURDATE()) between 2 and 12) and gender = 'M' and MONTH(obsDate) = MONTH(CURDATE()) AND YEAR(obsDate) = YEAR(CURDATE()) and pcrDateResult is not null and MONTH(heiResultDate) = MONTH(CURDATE()) AND YEAR(heiResultDate) = YEAR(CURDATE()) and heiResult = "HEI Results Positive") THEN 1 END maleGender,
-    CASE WHEN ( (TIMESTAMPDIFF(MONTH, birthdate, CURDATE()) between 2 and 12) and gender = 'F' and MONTH(obsDate) = MONTH(CURDATE()) AND YEAR(obsDate) = YEAR(CURDATE()) and pcrDateResult is not null and MONTH(heiResultDate) = MONTH(CURDATE()) AND YEAR(heiResultDate) = YEAR(CURDATE()) and heiResult = "HEI Results Positive") THEN 1 END femaleGender,
-    CASE WHEN ((TIMESTAMPDIFF(MONTH, birthdate, CURDATE()) between 2 and 12) and MONTH(obsDate) = MONTH(CURDATE()) AND YEAR(obsDate) = YEAR(CURDATE()) and pcrDateResult is not null and MONTH(heiResultDate) = MONTH(CURDATE()) AND YEAR(heiResultDate) = YEAR(CURDATE()) and heiResult = "HEI Results Positive") THEN 1 END totalAll 
-  FROM person pn 
-  JOIN person_attribute pa on pa.person_id = pn.person_id and pa.value in (select concept_id from concept_name where name in ("HeiRelationship", "ExistingHeiRelationship"))
-  JOIN person_attribute_type pat on (pat.person_attribute_type_id = pa.person_attribute_type_id and pat.retired = 0 and pat.name = "TypeofPatient") 
-  JOIN (SELECT distinct v.patient_id AS 'visitPatientId', o.obs_datetime AS 'obsDate', o.value_datetime AS 'pcrDateResult' FROM obs o 
-  JOIN concept_name cn ON (cn.concept_name_type = "FULLY_SPECIFIED" AND cn.voided is false AND cn.name="HEI Testing (First PCR Test Date)" AND o.concept_id = cn.concept_id) 
-  JOIN encounter enc ON enc.encounter_id = o.encounter_id 
-  JOIN visit v ON v.visit_id = enc.visit_id 
-  GROUP BY v.patient_id 
-  ORDER BY v.visit_id DESC) AS vr ON (vr.visitPatientId = pn.person_id)
-  JOIN (SELECT distinct v.patient_id AS 'visitPatientId', o.obs_datetime AS 'heiResultDate', (select name from concept_name where concept_id = o.value_coded and concept_name_type = "FULLY_SPECIFIED")  AS 'heiResult' FROM obs o 
-  JOIN concept_name cnr ON (cnr.concept_name_type = "FULLY_SPECIFIED" AND cnr.voided is false AND cnr.name="HEI Testing (First PCR Results)" and o.concept_id = cnr.concept_id) 
-  JOIN encounter enc ON enc.encounter_id = o.encounter_id 
-  JOIN visit v ON v.visit_id = enc.visit_id 
-  GROUP BY v.patient_id 
-  ORDER BY v.visit_id DESC) AS pr ON (pr.visitPatientId = pn.person_id)
- ) p
 
  UNION ALL
 
 SELECT
-   'B3b1. PCR HIV-Exposed Infants Upto 2-12 Months' as 'Title',
+   'PCR HIV-Exposed Infants Upto 2-12 Months' as 'Title',
    count(maleGender) as 'Male',
    count(femaleGender) as 'Female',
    count(totalAll) as 'Total'
@@ -150,7 +121,7 @@ SELECT
 UNION ALL
 
 SELECT
-   'B3b2. PCR HIV-Exposed Infants Upto 2-18 Months' as 'Title',
+   'PCR HIV-Exposed Infants Upto 2-18 Months' as 'Title',
    count(maleGender) as 'Male',
    count(femaleGender) as 'Female',
    count(totalAll) as 'Total'
@@ -199,7 +170,7 @@ SELECT
 UNION ALL
 
 SELECT
-   'B 3b2. PCR HIV-Exposed Infants Upto 12-18 Months' as 'Title',
+   'PCR HIV-Exposed Infants Upto 12-18 Months' as 'Title',
    count(maleGender) as 'Male',
    count(femaleGender) as 'Female',
    count(totalAll) as 'Total'
@@ -228,7 +199,7 @@ SELECT
 UNION ALL
 
 SELECT
-   'B 3C1.Total Public Health laboratory(sample collected)' as 'Title',
+   'Total Public Health laboratory(sample collected)' as 'Title',
    count(maleGender) as 'Male',
    count(femaleGender) as 'Female',
    count(totalAll) as 'Total'
@@ -253,7 +224,7 @@ SELECT
 UNION ALL
 
 SELECT
-   'B 3C2.Total Public Health laboratory(sample collected)' as 'Title',
+   'Total Public Health laboratory(sample collected)' as 'Title',
    count(maleGender) as 'Male',
    count(femaleGender) as 'Female',
    count(totalAll) as 'Total'
@@ -278,7 +249,7 @@ SELECT
 UNION ALL
 
 SELECT
-   'B 3D1.Total number of positive results received\n(regardless of sample collection months)' as 'Title',
+   'Total number of positive results received\n(regardless of sample collection months)' as 'Title',
    count(maleGender) as 'Male',
    count(femaleGender) as 'Female',
    count(totalAll) as 'Total'
@@ -327,7 +298,7 @@ SELECT
 UNION ALL
 
 SELECT
-   'B 3D2.Total number of positive results received\n(only from samples collected this reporting month)s' as 'Title',
+   'Total number of positive results received\n(only from samples collected this reporting month)s' as 'Title',
    count(maleGender) as 'Male',
    count(femaleGender) as 'Female',
    count(totalAll) as 'Total'
@@ -376,7 +347,7 @@ SELECT
 UNION ALL
 
 SELECT
-   'B 3D3.Number of HIV Infected Infants started on ART' as 'Title',
+   'Number of HIV Infected Infants started on ART' as 'Title',
    count(maleGender) as 'Male',
    count(femaleGender) as 'Female',
    count(totalAll) as 'Total'
@@ -402,7 +373,7 @@ SELECT
 UNION ALL
 
 SELECT
-   'B 3E.Number of EID Samples rejected by Public Health Laboratory' as 'Title',
+   'Number of EID Samples rejected by Public Health Laboratory' as 'Title',
    count(maleGender) as 'Male',
    count(femaleGender) as 'Female',
    count(totalAll) as 'Total'
@@ -451,7 +422,7 @@ SELECT
 UNION ALL
 
 SELECT
-   'C4. HIV-Exposed Infants Upto 2 Months Cotrimoxazole' as 'Title',
+   'HIV-Exposed Infants Upto 2 Months Cotrimoxazole' as 'Title',
    count(maleGender) as 'Male',
    count(femaleGender) as 'Female',
    count(totalAll) as 'Total'
@@ -474,7 +445,7 @@ SELECT
 UNION ALL
 
 SELECT
-   'D5a. Number HIV-exposed infants received NVP' as 'Title',
+   'Number HIV-exposed infants received NVP' as 'Title',
    count(maleGender) as 'Male',
    count(femaleGender) as 'Female',
    count(totalAll) as 'Total'
@@ -503,7 +474,7 @@ SELECT
 UNION ALL
 
 SELECT
-   'D5b. Number HIV-exposed infants received AZT+NVP' as 'Title',
+   'Number HIV-exposed infants received AZT+NVP' as 'Title',
    count(maleGender) as 'Male',
    count(femaleGender) as 'Female',
    count(totalAll) as 'Total'
@@ -532,7 +503,7 @@ SELECT
 UNION ALL
  
 SELECT
-   'D6. Number HIV-exposed infants ARV Prophylaxils (NVP and AZT+NVP)' as 'Title',
+   'Number HIV-exposed infants ARV Prophylaxils (NVP and AZT+NVP)' as 'Title',
    count(maleGender) as 'Male',
    count(femaleGender) as 'Female',
    count(totalAll) as 'Total'
@@ -561,7 +532,7 @@ SELECT
 UNION ALL
 
 SELECT
-  'E 7b. HIV-exposed infants whose \n feeding practice was assessed' as 'Title',
+  'HIV-exposed infants whose \n feeding practice was assessed' as 'Title',
   count(maleGender) as 'Male',
   count(femaleGender) as 'Female',
   count(totalAll) as 'Total'
@@ -586,7 +557,7 @@ FROM (
 UNION ALL
 
 SELECT
-  'F 8.Total HIV-exposed Infants turned \n 12 months of age  in this reporting period' as 'Title',
+  'Total HIV-exposed Infants turned \n 12 months of age  in this reporting period' as 'Title',
   count(maleGender) as 'Male',
   count(femaleGender) as 'Female',
   count(totalAll) as 'Total'
@@ -605,7 +576,7 @@ FROM (
 UNION ALL
 
 SELECT
-  'F 9.Received initial PCR test between 2–12 months' as 'Title',
+  'Received initial PCR test between 2–12 months' as 'Title',
   count(maleGender) as 'Male',
   count(femaleGender) as 'Female',
   count(totalAll) as 'Total'
@@ -624,7 +595,7 @@ FROM (
 UNION ALL
 
 SELECT
-  '11 A.Total HIV-exposed infants turned\n18 months in this reporting period' as 'Title',
+  'Total HIV-exposed infants turned\n18 months in this reporting period' as 'Title',
   count(maleGender) as 'Male',
   count(femaleGender) as 'Female',
   count(totalAll) as 'Total'
@@ -648,7 +619,7 @@ FROM (
 UNION ALL
 
 SELECT
-   '11 B. HIV-positive' as 'Title',
+   'HIV-positive' as 'Title',
    count(maleGender) as 'Male',
    count(femaleGender) as 'Female',
    count(totalAll) as 'Total'
@@ -698,7 +669,7 @@ SELECT
 UNION ALL
 
 SELECT
-   '11 C. HIV- negative and breastfeeding' as 'Title',
+   'HIV- negative and breastfeeding' as 'Title',
    count(maleGender) as 'Male',
    count(femaleGender) as 'Female',
    count(totalAll) as 'Total'
@@ -773,7 +744,7 @@ SELECT
 UNION ALL
 
 SELECT
-   '11 D. HIV- negative and no longer breastfeeding' as 'Title',
+   'HIV- negative and no longer breastfeeding' as 'Title',
    count(maleGender) as 'Male',
    count(femaleGender) as 'Female',
    count(totalAll) as 'Total'
