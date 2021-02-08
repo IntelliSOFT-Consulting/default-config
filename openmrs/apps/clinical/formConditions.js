@@ -1279,7 +1279,7 @@ Bahmni.ConceptSet.FormConditions.rules = {
     },
     "Indication For VL Testing" : function (formName , formFieldValues){
         var vltesting = formFieldValues["Indication For VL Testing"];
-        if(vltesting === "Routine monitoring"){
+        if(vltesting === "Routine monitoring,Vl Testing"){
             return {
                show: ["Last VL Date , Routine Monitoring","Viral Load Value , Routine Monitoring","Routine Monitoring Summary","Routine Monitoring Summary"],
                hide:["Last VL Date , Adherence Failure","Repeat Viral,Sample Collection Date","Repeat Viral,Date of Arrival Of Results","Viral Load Value , Adherence Failure","Repeat Viral,Outcome Action","Adherence Failure Summary","Last VL Date, Suspected Treatment Failure","Viral Load Value, Suspected Treatment Failure","Treatment Failure Summary"]
@@ -1289,7 +1289,7 @@ Bahmni.ConceptSet.FormConditions.rules = {
                show: ["Last VL Date , Adherence Failure","Repeat Viral,Sample Collection Date","Repeat Viral,Date of Arrival Of Results","Viral Load Value , Adherence Failure","Repeat Viral,Outcome Action","Adherence Failure Summary","Last VL Date, Suspected Treatment Failure"],
               hide:  ["Last VL Date, Suspected Treatment Failure","Viral Load Value, Suspected Treatment Failure","Treatment Failure Summary","Last VL Date , Routine Monitoring","Viral Load Value , Routine Monitoring","Routine Monitoring Summary","Routine Monitoring Summary"]
             }
-        } else if(vltesting === "Suspected treatment failure"){
+        } else if(vltesting === "Suspected treatment failure,Vl Testing"){
             return{
                 show: ["Last VL Date, Suspected Treatment Failure","Viral Load Value, Suspected Treatment Failure","Treatment Failure Summary"],
                 hide:["Last VL Date , Routine Monitoring","Viral Load Value , Routine Monitoring","Routine Monitoring Summary","Routine Monitoring Summary","Last VL Date , Adherence Failure","Repeat Viral,Sample Collection Date","Repeat Viral,Date of Arrival Of Results","Viral Load Value , Adherence Failure","Repeat Viral,Outcome Action","Adherence Failure Summary"],
