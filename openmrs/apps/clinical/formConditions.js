@@ -1302,8 +1302,8 @@ Bahmni.ConceptSet.FormConditions.rules = {
             }
         }   
     },
-    "Cotrimoxazole/Dapsone" : function (formName , formFieldValues){
-        var ctx = formFieldValues["Cotrimoxazole/Dapsone"];
+    "Cotrimoxazole/Dapsone,ART Followup" : function (formName , formFieldValues){
+        var ctx = formFieldValues["Cotrimoxazole/Dapsone,ART Followup"];
         if(ctx == true) {
             return{
                 show:["CTX Adherence","CTX Dose"]
