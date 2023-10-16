@@ -8,8 +8,10 @@
     }
   ],
   "config": {
+    "allowVirtualConsultation": false,
     "minCharLengthToTriggerPatientSearch": 3,
     "enableSpecialities": true,
+    "maxAppointmentProviders": 4,
     "startOfWeek": "Monday",
     "calendarSlotDuration": "00:30",
     "calendarSlotLabelInterval": "01:00",
@@ -50,6 +52,10 @@
     "colorsForListView": {
       "Missed": "#fceab6",
       "Cancelled": "#fcb6b6"
-    }
+    },
+    "recurrence": {
+      "defaultNumberOfOccurrences": 10
+    },
+    "additionalInfoColumns": {"Language": "English"}
   }
 }

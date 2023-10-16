@@ -17,12 +17,20 @@
                     <th ng-repeat="heading in upcomingAppointmentsHeadings">
                         {{heading | translate}}
                     </th>
+                    <th>
+			            {{::"DASHBOARD_TELECON_KEY" | translate}}
+                    </th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr ng-repeat="appointment in upcomingAppointments">
                     <td ng-repeat="detail in appointment">
                         {{detail}}
+                    </td>
+                    <td>
+                        <button style="background: #669998; color: white;" ng-if="showJoinTeleconsultationOption($index)" ng-click="openJitsiMeet($index)">
+                                 {{::"DASHBOARD_JOIN_TELECON_KEY" | translate}}
+                         </button>
                     </td>
                 </tr>
                 </tbody>
