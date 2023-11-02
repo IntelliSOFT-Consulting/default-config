@@ -1,6 +1,6 @@
 {
 	"homePage": {
-		"header_text": "<b>LS MOH EMR<br />",
+		"header_text": "<b>WELCOME TO<br />BAHMNI EMR & HOSPITAL SERVICE",
 		"logo": "/bahmni/images/bahmniLogoFull.png",
 		"title_text": " "
 	},
@@ -42,21 +42,21 @@
 			"linkPrefix": "payments"
 		},
 		{
-			"enabled": false,
+			"enabled": true,
 			"name": "connect",
 			"title": "Connect",
 			"logo": "/bahmni/images/connect.png",
 			"link": "/bahmni-connect"
 		},
 		{
-			"enabled": false,
+			"enabled": true,
 			"name": "dcm",
 			"title": "Radiology",
 			"logo": "/bahmni/images/pac.png",
 			"link": "/dcm4chee-web3"
 		},
 		{
-			"enabled": false,
+			"enabled": true,
 			"name": "metabase",
 			"title": "Analytics",
 			"logo": "/bahmni/images/analytics.png",
