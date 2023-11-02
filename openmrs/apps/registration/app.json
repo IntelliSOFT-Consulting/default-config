@@ -29,34 +29,15 @@
                 "additionalPatientInformation": {
                     "title": "Additional Patient Information",
                     "attributes": [
-                        "email",
-                        "patientPhoneNumber"
-                    ],
-                    "expand": true,
-                "order": 2
-                },
-                "registerNewPatient1": {
-                    "title": "Next Of Kin Information",
-                    "translationKey": "REGISTRATION_NEXT_OF_KIN_INFORMATION",
-                    "attributes": [
-                        "nextOfKinNames",
-                        "nextOfKinRelationship",
-                        "nextOfKinPhoneNumber",
-                        "nextOfKinEmail",
-                        "nextOfKinLocationDetails"
-                    ],
-                    "expand": true,
-                    "order": 3
-                },
-                "patientPaymentRegistration": {
-                    "title": "Payment Information",
-                    "translationKey": "REGISTRATION_PAYMENT_INFORMATION",
-                    "attributes": [
-                        "sponsorShipType",
-                        "sponsorShipCompany"
-                    ],
-                    "expand": true,
-                    "order": 4
+                        "distanceFromCenter",
+                        "isUrban",
+                        "cluster",
+                        "RationCard",
+                        "familyIncome",
+                        "debt",
+                        "cluster",
+                        "email"
+                    ]
                 },
                 "hidden": {
                     "attributes": [
@@ -132,12 +113,15 @@
                 "address1" : {"pattern" : "[a-zA-Z0-9\\s]{2,}", "errorMessage" : "Should contain at least 2 characters"}
             },
             "patientSearch": {
+                "address": {
+                    "label": "Rural Ward",
+                    "placeholder": "Enter ward",
+                    "field": "address2"
+                },
                 "customAttributes": {
-                    "label": "Phone Number",
-                    "placeholder": "Phone Number",
-                    "fields": [
-                        "patientPhoneNumber"
-                    ]
+                    "label": "रुग्णाचे नाव",
+                    "placeholder": "रुग्णाचे नाव",
+                    "fields": ["givenNameLocal", "middleNameLocal", "familyNameLocal"]
                 }
             }
         }
