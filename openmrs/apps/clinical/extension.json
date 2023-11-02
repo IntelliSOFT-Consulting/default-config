@@ -119,6 +119,19 @@
     "order": 5,
     "requiredPrivilege": "app:ipdQueue"
   },
+  "bahmniClinicalPatientsSearchEmmergency": {
+    "id": "bahmni.clinical.patients.search.emergency",
+    "extensionPointId": "org.bahmni.patient.search",
+    "type": "config",
+    "extensionParams": {
+      "searchHandler": "emrapi.sqlSearch.emergency",
+      "translationKey": "MODULE_LABEL_EMERGENCY",
+      "forwardUrl": "#/default/patient/{{patientUuid}}/dashboard"
+    },
+    "label": "Active",
+    "order": 6,
+    "requiredPrivilege": "app:emergencyQueue"
+  },
   "bahmniClinicalConceptSetGroupObservationsHistory": {
     "id": "bahmni.clinical.conceptSetGroup.observations.history",
     "extensionPointId": "org.bahmni.clinical.conceptSetGroup.observations",
