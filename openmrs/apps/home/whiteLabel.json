@@ -32,7 +32,8 @@
 			"name": "odoo",
 			"title": "Stock Inventory & Billing",
 			"logo": "/bahmni/images/bills.png",
-			"linkPrefix": "erp"
+			"link": "/odoo",
+			"linkPrefix": "/erp-app"
 		},
 		{
 			"enabled": false,
