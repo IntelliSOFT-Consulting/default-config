@@ -8,6 +8,12 @@ on:
       - '[0-9]+.[0-9]+.[0-9]+'
     paths-ignore:
       - "**.md"
+  workflow_run:
+    workflows: [Pull Translations from Transifex]
+    types: [completed]
+    branches:
+      - master
+      - 'release-*'
 
 jobs:
   build-publish-docker-helm:
@@ -41,7 +47,10 @@ jobs:
           tags: bahmni/default-config:${{env.ARTIFACT_VERSION}},bahmni/default-config:latest
       - name: Push Translations to Transifex
         run: |
-          bash .github/scripts/transifex.sh
+          curl -o transifex.sh https://raw.githubusercontent.com/Bahmni/bahmni-infra-utils/main/transifex.sh
+          chmod +x transifex.sh
+          ./transifex.sh push
+          rm transifex.sh
         env:
           TX_TOKEN: ${{ secrets.TX_TOKEN }}
       - name: Update Version and Image Tag

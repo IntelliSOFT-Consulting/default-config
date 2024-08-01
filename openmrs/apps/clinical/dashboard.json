@@ -23,7 +23,8 @@
                 "displayOrder": 2,
                 "dashboardConfig": {
                     "title": null,
-                    "maximumNoOfVisits": 5
+                    "maximumNoOfVisits": 5,
+                    "printing": { }
                 },
                 "formGroup": [ ],
                 "translationKey":"DASHBOARD_TITLE_FORMS2_DISPLAY_EDIT_FORMS2_FORMS"
@@ -90,6 +91,11 @@
                     "numberOfVisits":10,
                     "showOtherActive":true,
                     "showDetailsButton":true
+                },
+                "prescriptionPrint":{
+                    "title": "Bahmni",
+                    "header": "Prescriptions",
+                    "logo": "../images/bahmniLogo.png"
                 }
             },
             "radiology":{  
@@ -172,15 +178,25 @@
                     "showNormalLabResults": true,
                     "showCommentsExpanded": true,
                     "showAccessionNotes": true,
-                    "showDetailsButton":false
+                    "showDetailsButton":false,
+                    "chartConfig": {
+                        "sortResultColumnsLatestFirst":true,
+                        "groupByPanel":true
+                    }  
                 },
                 "expandedViewConfig":{  
-                    "numberOfVisits":10
+                    "numberOfVisits":10,
+                    "showChart":true,
+                    "showTable":false,
+                    "chartConfig": {
+                        "sortResultColumnsLatestFirst":true,
+                        "groupByPanel":true
+                    }  
                 }
             },
             "nutritionalValues":{  
                 "translationKey":"DASHBOARD_TITLE_NUTRITIONAL_VALUES_KEY",
-                "type":"vitals",
+                "type":"observation",
                 "isObservation":true,
                 "displayOrder":11,
                 "dashboardConfig":{  
@@ -206,7 +222,8 @@
                     "pivotTable":{  
 
                     }
-                }
+                },
+                "hideEmptyDisplayControl": true
             },
             "vitals":{  
                 "translationKey":"DASHBOARD_TITLE_VITALS_KEY",
@@ -399,7 +416,8 @@
                 "displayOrder": 21,
                 "dashboardConfig": {
                     "title": null,
-                    "maximumNoOfVisits": 10
+                    "maximumNoOfVisits": 10,
+                    "printing": { }
                 },
                 "formGroup": [ ],
                 "translationKey": "DASHBOARD_TITLE_FORMS_DISPLAY_CONTROL_KEY"
@@ -413,11 +431,12 @@
                 }
             },
 	    "Forms-2.0": {
-                "type": "formsV2",
+                "type": "formsV2React",
                 "displayOrder": 23,
                 "dashboardConfig": {
                     "title": null,
-                    "maximumNoOfVisits": 1
+                    "maximumNoOfVisits": 1,
+                    "printing": { }
                 },
                 "formGroup": [ ],
                 "translationKey": "DASHBOARD_TITLE_FORMS2_DISPLAY_CONTROL_KEY"

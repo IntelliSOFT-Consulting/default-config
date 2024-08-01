@@ -31,24 +31,42 @@
             },
             "pacsOrders":{
                 "type":"pacsOrders",
-                "displayOrder": 1,
-                "translationKey": "PACS_ORDERS_VISIT_PAGE_KEY",
+                "displayOrder": 4,
+                "translationKey": "RADIOLOGY_ORDERS_KEY",
                 "config":{
                     "orderType": "Radiology Order"
+                }
+            },
+            "labInvestigations":{
+                "type": "labOrders",
+                "displayOrder": 2,
+                "config": {
+                    "translationKey":"LAB_INVESTIGATION",
+                    "showChart": true,
+                    "showTable": false,
+                    "showNormalLabResults": true,
+                    "showCommentsExpanded": true,
+                    "showAccessionNotes": true,
+                    "numberOfVisits": 10,
+                    "hideResultsColumn": false,
+                    "chartConfig": {
+                        "sortResultColumnsLatestFirst":true,
+                        "groupByPanel":true
+                    } 
                 }
             },
             "conditions": {
                 "title": "Conditions",
                 "type": "conditionsList",
-                "displayOrder": 2,
+                "displayOrder": 1,
                 "config": { }
             }
         },
-            "encounterContext": {
-                "filterEncounterTypes": [
-                    "Consultation"
-                ]
-            }
+        "encounterContext": {
+            "filterEncounterTypes": [
+                "Consultation"
+            ]
+        }
     },
     "dischargeSummary":{
         "translationKey": "DASHBOARD_TAB_DISCHARGE_SUMMARY_KEY",
@@ -97,6 +115,7 @@
             "diagnoses":{
                 "type": "diagnosis",
                 "displayOrder": 4,
+                "title": "Diagnosis",
                 "config": {
                     "translationKey" : "DISCHARGE_SUMMARY_DIAGNOSIS_KEY",
                     "showCertainty": false,
@@ -121,7 +140,7 @@
                 }
             },
             "labInvestigations":{
-                "type": "investigationResult",
+                "type": "labOrders",
                 "displayOrder": 6,
                 "config": {
                     "translationKey":"LAB_INVESTIGATION",
@@ -132,15 +151,20 @@
                     "showAccessionNotes": true,
                     "numberOfVisits": 10,
                     "initialAccessionCount": 1,
-                    "latestAccessionCount": 1
+                    "latestAccessionCount": 1,
+                    "hideResultsColumn": false,
+                    "chartConfig": {
+                        "sortResultColumnsLatestFirst":true,
+                        "groupByPanel":true
+                    } 
                 }
             },
             "Treatments": {
-                "type": "treatment",
+                "translationKey": "VISIT_TITLE_TREATMENTS_KEY",
+                "type":"prescription",
                 "displayOrder": 6,
                 "config": {
-                    "translationKey": "VISIT_TITLE_TREATMENTS_KEY",
-                    "showFlowSheet": true,
+                    "showFlowSheet": false,
                     "showListView": true,
                     "showOtherActive": false,
                     "showDetailsButton": true,
@@ -186,6 +210,5 @@
               }
           }
       }
-
     }
 }

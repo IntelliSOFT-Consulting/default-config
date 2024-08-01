@@ -8,7 +8,7 @@
     }
   ],
   "config": {
-    "allowVirtualConsultation": false,
+    "allowVirtualConsultation": true,
     "minCharLengthToTriggerPatientSearch": 3,
     "enableSpecialities": true,
     "maxAppointmentProviders": 4,
@@ -47,7 +47,8 @@
     "allowedActions": ["CheckedIn", "Completed", "Missed", "Cancelled"],
     "allowedActionsByStatus": {
       "Scheduled": ["CheckedIn", "Missed", "Cancelled"],
-      "CheckedIn": ["Completed", "Missed", "Cancelled"]
+      "CheckedIn": ["Completed", "Missed", "Cancelled"],
+      "WaitList": ["Cancelled"]
     },
     "colorsForListView": {
       "Missed": "#fceab6",
@@ -56,6 +57,8 @@
     "recurrence": {
       "defaultNumberOfOccurrences": 10
     },
-    "additionalInfoColumns": {"Language": "English"}
+    "additionalInfoColumns": {"Language": "English"},
+    "enableAppointmentStatusOption": true,
+    "enableDetailedSummaryView": true
   }
 }
