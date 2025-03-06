@@ -1,11 +1,11 @@
 {
 	"homePage": {
-		"header_text": "<b>WELCOME TO<br />BAHMNI EMR & HOSPITAL SERVICE",
+		"header_text": "<b>Welcome to <br />eHospital & Hospital Service",
 		"logo": "/bahmni/images/bahmniLogoFull.png",
 		"title_text": " "
 	},
 	"loginPage": {
-		"logo": "/bahmni/images/bahmniLogoFull.png",
+		"logo": "/bahmni/images/bahmniLogo.png",
 		"showHeaderText": true,
 		"showTitleText": false
 	},
@@ -42,7 +42,7 @@
 			"linkPrefix": "payments"
 		},
 		{
-			"enabled": true,
+			"enabled": false,
 			"name": "connect",
 			"title": "Connect",
 			"logo": "/bahmni/images/connect.png",
@@ -56,7 +56,7 @@
 			"link": "/dcm4chee-web3"
 		},
 		{
-			"enabled": true,
+			"enabled": false,
 			"name": "metabase",
 			"title": "Analytics",
 			"logo": "/bahmni/images/analytics.png",
